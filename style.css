@@ -60,6 +60,10 @@ img {
   max-width: 500px;
 }
 @media only screen and (max-width: 800px) {
+  body {
+    overflow-x: hidden;
+  }
+  
   #navbar {
     position: absolute;
     top: 10px;
