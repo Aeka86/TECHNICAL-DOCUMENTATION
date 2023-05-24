@@ -60,15 +60,21 @@ img {
   max-width: 500px;
 }
 @media only screen and (max-width: 800px) {
+ 
   #navbar {
     position: absolute;
     top: 10px;
     width: 100%;
+    
   }
 
   #main-doc {
-    position: relative;
-    margin-left: 0px;
-    margin-top: 500px;
+    position: absolute;
+    margin: 500px 0;
+    
+  }
+  
+  img {
+    width: 240px;
   }
 }
