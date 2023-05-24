@@ -1,0 +1,74 @@
+html {
+  color: #023047;
+  background-color: #faf0ca;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+}
+#navbar {
+  position: fixed;
+  top: 20px;
+  width: 300px;
+  height: 50%;
+}
+#navbar ul {
+  padding: 20px;
+  text-align: center;
+}
+#navbar li {
+  background-color: #f3ca40;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+#navbar a {
+  display: block;
+  padding: 20px;
+  color: #023047;
+  text-decoration: none;
+}
+header {
+  color: #023047;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 330px;
+  padding: 30px;
+}
+section article {
+  color: #023047;
+  margin: 10px;
+  font-size: 15px;
+}
+
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  color: white;
+  line-height: 1.8;
+  background-color: #7b9e89;
+  padding: 10px;
+  margin: 0;
+  border-radius: 6px;
+}
+img {
+  max-width: 500px;
+}
+@media only screen and (max-width: 800px) {
+  #navbar {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 500px;
+  }
+}

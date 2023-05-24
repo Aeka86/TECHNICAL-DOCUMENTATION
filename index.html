@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Typescript Technical Documentation</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </head>
+  <nav id="navbar">
+    <header>Typescript</header>
+    <!------------------ Navigation Bar ------------------>
+    <ul>
+      <li><a class="nav-link" href="#Get_started">Get Started</a></li>
+      <li>
+        <a class="nav-link" href="#Handbook">Handbook</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#Reference">Reference</a>
+      </li>
+      <li><a class="nav-link" href="#Tutorials">Tutorials</a></li>
+      <li><a class="nav-link" href="#What's_new">What's New</a></li>
+    </ul>
+  </nav>
+  <!--------------- Main Document ----------------->
+  <main id="main-doc">
+    <!----------- Get Started Section ---------->
+    <section class="main-section" id="Get_started">
+      <header>Get Started</header>
+      <article>
+        <p>
+          Congratulations on choosing TypeScript as one of your first languages
+          — you’re already making good decisions.
+        </p>
+
+        <p>
+          You’ve probably already heard that TypeScript is a “flavor” or
+          “variant” of JavaScript. The relationship between TypeScript (TS) and
+          JavaScript (JS) is rather unique among modern programming languages,
+          so learning more about this relationship will help you understand how
+          TypeScript adds to JavaScript.
+        </p>
+
+        <h1>What is JavaScript? A Brief History</h1>
+
+        <p>
+          JavaScript (also known as ECMAScript) started its life as a simple
+          scripting language for browsers. At the time it was invented, it was
+          expected to be used for short snippets of code embedded in a web page
+          — writing more than a few dozen lines of code would have been somewhat
+          unusual. Due to this, early web browsers executed such code pretty
+          slowly. Over time, though, JS became more and more popular, and web
+          developers started using it to create interactive experiences.
+        </p>
+
+        <p>
+          Web browser developers responded to this increased JS usage by
+          optimizing their execution engines (dynamic compilation) and extending
+          what could be done with it (adding APIs), which in turn made web
+          developers use it even more. On modern websites, your browser is
+          frequently running applications that span hundreds of thousands of
+          lines of code. This is long and gradual growth of “the web”, starting
+          as a simple network of static pages, and evolving into a platform for
+          rich <i>applications</i>> of all kinds.
+        </p>
+
+        <p>
+          More than this, JS has become popular enough to be used outside the
+          context of browsers, such as implementing JS servers using node.js.
+          The “run anywhere” nature of JS makes it an attractive choice for
+          cross-platform development. There are many developers these days that
+          use <i>only</i> JavaScript to program their entire stack!
+        </p>
+
+        <p>
+          To summarize, we have a language that was designed for quick uses, and
+          then grew to a full-fledged tool to write applications with millions
+          of lines. Every language has its own <i>quirks</i> — oddities and
+          surprises, and JavaScript’s humble beginning makes it have
+          <i>many</i> of these. Some examples:
+        </p>
+        <ul>
+          <li>
+            JavaScript’s equality operator (==) coerces its arguments, leading
+            to unexpected behavior:
+            <code>
+              if ("" == 0) { // It is! But why?? } if (1 < x < 3) { // True for
+              *any* value of x! }
+            </code>
+          </li>
+          <li>
+            JavaScript also allows accessing properties which aren’t present:
+            <code>
+              const obj = { width: 10, height: 15 }; // Why is this NaN?
+              Spelling is hard! const area = obj.width * obj.heigth;
+            </code>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <!-----------Handbook Section ---------->
+    <section class="main-section" id="Handbook">
+      <header>Handbook</header>
+      <article>
+        <p>
+          Over 20 years after its introduction to the programming community,
+          JavaScript is now one of the most widespread cross-platform languages
+          ever created. Starting as a small scripting language for adding
+          trivial interactivity to webpages, JavaScript has grown to be a
+          language of choice for both frontend and backend applications of every
+          size. While the size, scope, and complexity of programs written in
+          JavaScript has grown exponentially, the ability of the JavaScript
+          language to express the relationships between different units of code
+          has not. Combined with JavaScript’s rather peculiar runtime semantics,
+          this mismatch between language and program complexity has made
+          JavaScript development a difficult task to manage at scale.
+        </p>
+
+        <p>
+          The most common kinds of errors that programmers write can be
+          described as type errors: a certain kind of value was used where a
+          different kind of value was expected. This could be due to simple
+          typos, a failure to understand the API surface of a library, incorrect
+          assumptions about runtime behavior, or other errors. The goal of
+          TypeScript is to be a static typechecker for JavaScript programs - in
+          other words, a tool that runs before your code runs (static) and
+          ensures that the types of the program are correct (typechecked).
+        </p>
+
+        <p>
+          If you are coming to TypeScript without a JavaScript background, with
+          the intention of TypeScript being your first language, we recommend
+          you first start reading the documentation on either the
+          <a href="https://docs.microsoft.com/javascript/" target="_blank"
+            >Microsoft Learn JavaScript tutorial</a
+          >
+          or read
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+            target="_blank"
+            >JavaScript at the Mozilla Web Docs</a
+          >. If you have experience in other languages, you should be able to
+          pick up JavaScript syntax quite quickly by reading the handbook.
+        </p>
+      </article>
+    </section>
+    <!----------- Reference Section ---------->
+    <section class="main-section" id="Reference">
+      <header>Reference</header>
+      <article>
+        <p>
+          TypeScript provides several utility types to facilitate common type
+          transformations. These utilities are available globally.
+        </p>
+
+        <p>
+          Constructs a type with all properties of Type set to optional. This
+          utility will return a type that represents all subsets of a given
+          type. Example
+        </p>
+        <code>
+          interface Todo { title: string; description: string; } function
+          updateTodo(todo: Todo, fieldsToUpdate: Partial Todo ) { return {
+          ...todo, ...fieldsToUpdate }; } const todo1 = { title: "organize
+          desk", description: "clear clutter", }; const todo2 =
+          updateTodo(todo1, { description: "throw out trash", });
+        </code>
+        <p>
+          Constructs a type consisting of all properties of Type set to
+          required. The opposite of Partial. Example
+        </p>
+        <code>
+          interface Props { a?: number; b?: string; } const obj: Props = { a: 5
+          }; const obj2: Required Props = { a: 5 };
+        </code>
+      </article>
+    </section>
+    <!----------- Tutorials Section ---------->
+    <section class="main-section" id="Tutorials">
+      <header>Tutorials</header>
+      <article>
+        <p>
+          First, install
+          <a
+            href="https://dotnet.microsoft.com/en-us/apps/aspnet"
+            target="_blank"
+            >ASP.NET Core</a
+          >
+          if you need it. This quick-start guide requires Visual Studio 2015 or
+          2017.
+        </p>
+
+        <p>
+          Next, if your version of Visual Studio does not already have the
+          latest TypeScript, you can
+          <a
+            href="https://www.typescriptlang.org/#download-links"
+            target="_blank"
+            >install it</a
+          >.
+        </p>
+        <h1>Create a new project</h1>
+        <ol>
+          <li>Choose <b>File</b></li>
+          <li>Choose <b>New Project</b>> (Ctrl + Shift + N)</li>
+          <li>Search for <b>.NET Core</b>> in the project search bar</li>
+          <li>
+            Select <b>ASP.NET Core Web Application</b>> and press the
+            <i>Next</i>> button
+          </li>
+          <img src="https://i.postimg.cc/L5XTcTTY/createwebapp.png" alt="" />
+          <li>
+            Name your project and solution. After select the <i>Create</i>>
+            button
+          </li>
+          <img src="https://i.postimg.cc/13tn13bd/namewebapp.png" alt="" />
+          <li>
+            In the last window, select the <b>Empty</b>> template and press the
+            Create button
+          </li>
+          <img src="https://i.postimg.cc/MTWJgvFM/emptytemplate.png" alt="" />
+          <p>Run the application and make sure that it works.</p>
+          <img src="https://i.postimg.cc/0jMW4vPK/workingsite.png" alt="" />
+        </ol>
+      </article>
+    </section>
+    <!-------------- What's New Section ---------->
+    <section class="main-section" id="What's_new">
+      <header>What's New</header>
+      <article>
+        <p>
+          This overview page contains a shortened version of all the release
+          notes for TypeScript. Because this page is so big. code samples have
+          their interactive elements disabled.
+        </p>
+
+        <h1>TypeScript 4.2</h1>
+        <p>
+          TypeScript has a way to declare new names for types called type
+          aliases. If you’re writing a set of functions that all work on
+          <code>string | number | boolean </code>, you can write a type alias to
+          avoid repeating yourself over and over again.
+        </p>
+        <code> type BasicPrimitive = number | string | boolean; </code>
+        <p>
+          In TypeScript 4.2, our internals are a little smarter. We keep track
+          of how types were constructed by keeping around parts of how they were
+          originally written and constructed over time. We also keep track of,
+          and differentiate, type aliases to instances of other aliases!
+        </p>
+
+        <p>
+          Being able to print back the types based on how you used them in your
+          code means that as a TypeScript user, you can avoid some unfortunately
+          humongous types getting displayed, and that often translates to
+          getting better .d.ts file output, error messages, and in-editor type
+          displays in quick info and signature help. This can help TypeScript
+          feel a little bit more approachable for newcomers.
+        </p>
+
+        <p>
+          For more information, check out the
+          <a
+            href="https://github.com/microsoft/TypeScript/pull/42149"
+            target="_blank"
+            >first pull request that improves various cases around preserving
+            union type aliases</a
+          >, along with
+          <a
+            href="https://github.com/microsoft/TypeScript/pull/42284"
+            target="_blank"
+            >a second pull request that preserves indirect aliases</a
+          >.
+        </p>
+        <h1>Leading/Middle Rest Elements in Tuple Types</h1>
+        <p>
+          In TypeScript, tuple types are meant to model arrays with specific
+          lengths and element types.
+        </p>
+        <code>
+          // A tuple that stores a pair of numbers let a: [number, number] = [1,
+          2]; // A tuple that stores a string, a number, and a boolean let b:
+          [string, number, boolean] = ["hello", 42, true];
+        </code>
+        <p>
+          In TypeScript 4.2, rest elements specifically been expanded in how
+          they can be used. In prior versions, TypeScript only allowed ...rest
+          elements at the very last position of a tuple type. However, now rest
+          elements can occur anywhere within a tuple - with only a few
+          restrictions.
+        </p>
+        <code>
+          let foo: [...string[], number]; foo = [123]; foo = ["hello", 123]; foo
+          = ["hello!", "hello!", "hello!", 123]; let bar: [boolean, ...string[],
+          boolean]; bar = [true, false]; bar = [true, "some text", false]; bar =
+          [true, "some", "separated", "text", false];
+        </code>
+      </article>
+    </section>
+  </main>
+</html>
